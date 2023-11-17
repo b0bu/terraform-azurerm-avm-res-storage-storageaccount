@@ -130,7 +130,7 @@ EOT
 
   validation {
     condition = alltrue([
-      for n, z in var.private_dns_zones_for_private_link : contains(["blob", "table", "queue"], n)
+      for n, z in var.private_dns_zones_for_private_link : contains(["blob", "table", "queue", "file"], n)
     ])
     error_message = "The map's key must be one of `blob`, `table`, `queue`."
   }
@@ -153,7 +153,7 @@ EOT
 
   validation {
     condition = alltrue([
-      for n, z in var.private_dns_zones_for_public_endpoint : contains(["blob", "table", "queue"], n)
+      for n, z in var.private_dns_zones_for_public_endpoint : contains(["blob", "table", "queue", "file"], n)
     ])
     error_message = "The map's key must be one of `blob`, `table`, `queue`."
   }
